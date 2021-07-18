@@ -1,0 +1,513 @@
+<?php 
+session_start();
+
+error_reporting(0);
+
+if($_SESSION['uname'])
+{
+    $uname =  $_SESSION['uname'];
+}
+ ?>
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>School</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="fonts/flaticon.css">
+    <!-- Full Calender CSS -->
+    <link rel="stylesheet" href="css/fullcalendar.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Custom CSS -->
+        <!--Css2-->
+     <link rel="stylesheet" href="css2/animation.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Modernize js -->
+    <script src="js/modernizr-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <!-- Preloader Start Here -->
+    <div id="preloader"></div>
+    <!-- Preloader End Here -->
+    <div id="wrapper" class="wrapper bg-ash"  >
+       <!-- Header Menu Area Start Here -->
+        <div class="navbar navbar-expand-md header-menu-one bg-light">
+            <div class="nav-bar-header-one">
+                <div class="header-logo">
+                    <a href="index.php">
+                        <img src="img/newlogo3.png" width="51px" height="20px" style="margin-left:10px;padding:0px;border-radius:10px;" alt="logo">
+                    </a>
+                </div>
+                  <div class="toggle-button sidebar-toggle">
+                    <button type="button" class="item-link">
+                        <span class="btn-icon-wrap">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="d-md-none mobile-nav-bar">
+               <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                </button>
+                <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+                <ul class="navbar-nav">
+                    <li class="navbar-item header-search-bar">
+                        <div class="input-group stylish-input-group">
+                            <span class="input-group-addon">
+                                
+                            </span>
+                            <!-- <input type="text" class="form-control" placeholder="Find Something . . ."> -->
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="navbar-item dropdown header-admin">
+                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false">
+                            <div class="admin-title">
+                                <h5 class="item-title">
+                                    <?php if($_SESSION['uname']) {echo $_SESSION['uname'];} else { echo "<script>location.href='login.php'</script>"; } ?>
+                                </h5>
+                                <span>Admin</span>
+                            </div>
+                            <div class="admin-img">
+                                <img src="img/figure/admin.jpg" alt="Admin">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="item-header">
+                                <h6 class="item-title">
+                                    <?php if($_SESSION['uname']) {echo $_SESSION['uname'];} else { echo "<script>location.href='login.php'</script>"; } ?>
+                                </h6>
+                            </div>
+                            <div class="item-content">
+                                <ul class="settings-list">
+                                    <li><a href="php/logout.php"><i class="flaticon-turn-off"></i>Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- Header Menu Area End Here -->
+
+
+
+        <!-- Page Area Start Here -->
+        <div class="dashboard-page-one">
+            <!-- Sidebar Area Start Here -->
+            <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+               <div class="mobile-sidebar-header d-md-none">
+                    <div class="header-logo">
+                        <a href="index.php"><img src="img/logo1.png" alt="logo"></a>
+                    </div>
+               </div>
+                <div class="sidebar-menu-content">
+                    <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                        </li>
+
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span>Students</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="all-student.php" class="nav-link"><i class="fas fa-angle-right"></i>All
+                                        Students</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="student-details.php" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Student Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="admit-form.php" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Admission Student</a>
+                                </li>
+                            </ul>
+                        </li>
+                         <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span>Human Resource</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="all-staff.php" class="nav-link"><i class="fas fa-angle-right"></i>All Staff</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="staff-details.php" class="nav-link"><i class="fas fa-angle-right"></i>Staff Detail</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="add-staff.php" class="nav-link"><i class="fas fa-angle-right"></i>ADD Staff</a>
+                                </li>
+                            </ul>
+                        </li>
+                         <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span>Account Reports </span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="due-fee-report.php" class="nav-link"><i class="fas fa-angle-right"></i>Due Fee Reports</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="daily-fee-report.php" class="nav-link"><i class="fas fa-angle-right"></i>Daily Fee Reports </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="date-wise-collection.php" class="nav-link"><i class="fas fa-angle-right"></i>Date wise Collection</a>
+                                </li>
+                                
+                            </ul>
+                       <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-technological"></i><span>Account</span></a>
+                            <ul class="nav sub-group-menu sub-group-active">
+                                <li class="nav-item">
+                                   <a href="fee-collection.php" class="nav-link"><i class="fas fa-angle-right"></i> Fee Collection</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="search-fee.php" class="nav-link"><i class="fas fa-angle-right"></i>Search Fee</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="search-due-fee.php" class="nav-link"><i class="fas fa-angle-right"></i>Search Due Fee</a>
+                                </li>
+                               
+                                <li class="nav-item">
+                                    <a href="generate-fee.php" class="nav-link"><i class="fas fa-angle-right"></i>Generate Fee</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="expense-head.php" class="nav-link"><i class="fas fa-angle-right"></i>Expenses</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        </li>
+                        </li>            
+                       <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-technological"></i><span>Transport</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="add-route.php" class="nav-link"><i class="fas fa-angle-right"></i>Routes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="add-vehicle.php" class="nav-link"><i class="fas fa-angle-right"></i>Vehicles</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="assign-vehicle.php" class="nav-link"><i class="fas fa-angle-right"></i>Assign Vehicle</a>
+                                </li>
+                                </ul>
+
+                            
+                         <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-shopping-list"></i><span>Exam</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="exam-schedule.php" class="nav-link"><i class="fas fa-angle-right"></i>Exam
+                                        Schedule</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="marks-entry.php" class="nav-link"><i class="fas fa-angle-right"></i>Marks Entry</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="print-report-card.php" class="nav-link"><i class="fas fa-angle-right"></i>Print Report Card</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-shopping-list"></i><span>Explorer</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="class-explorer.php" class="nav-link"><i class="fas fa-angle-right"></i>Class Explorer</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-technological"></i><span>Certificate</span></a>
+                            <ul class="nav sub-group-menu">   
+                                <li class="nav-item">
+                                    <a href="leaving-cert.php" class="nav-link"><i class="fas fa-angle-right"></i>Leaving Certificate</a>
+                                <li class="nav-item">
+                                    <a href="character-cert.php" class="nav-link"><i class="fas fa-angle-right"></i>Character Certificate</a>
+                            </ul>
+                        </li>
+                         </li>
+
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-technological"></i><span>General Setting</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="general-details.php" class="nav-link"><i class="fas fa-angle-right"></i>General Detail </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="session-master.php" class="nav-link"><i class="fas fa-angle-right"></i> Session Master </a>
+                                </li>
+                               
+                                <li class="nav-item">
+                                    <a href="category.php" class="nav-link"><i class="fas fa-angle-right"></i>Categories</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="all-subject.php" class="nav-link"><i class="fas fa-angle-right"></i>Subjects</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="house.php" class="nav-link"><i class="fas fa-angle-right"></i>House</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="all-classes.php" class="nav-link"><i class="fas fa-angle-right"></i>Class</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="all-sections.php" class="nav-link"><i class="fas fa-angle-right"></i>Section</a>
+                                </li>
+                            
+                                <li class="nav-item">
+                                    <a href="staff-type.php" class="nav-link"><i class="fas fa-angle-right"></i>Staff Type</a>
+                                </li>
+                         
+                                <li class="nav-item">
+                                    <a href="fee-head.php" class="nav-link"><i class="fas fa-angle-right"></i>Fee Head</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="fee-profile.php" class="nav-link"><i class="fas fa-angle-right"></i>Fee Profile </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="expense-head.php" class="nav-link"><i class="fas fa-angle-right"></i>Expense Head</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="income-head.php" class="nav-link"><i class="fas fa-angle-right"></i>Income Head</a>
+                                </li>
+                            </ul>
+                        </li>
+                        </li>
+                     
+                        </li>                                               
+                    </ul>
+                </div>
+            </div>
+            <!-- Sidebar Area End Here -->
+
+
+            
+            <div class="dashboard-content-one">
+                <!-- Breadcubs Area Start Here -->
+                <div class="breadcrumbs-area">
+                    <h3>Admin Dashboard</h3>
+                    <ul>
+                        <li>
+                            <a href="index.php">Home</a>
+                        </li>
+                        <li>Admin</li>
+                    </ul>
+                </div>
+                <!-- Breadcubs Area End Here -->
+                <!-- Dashboard summery Start Here -->
+                <div class="row gutters-20" >
+                    <div class="col-xl-4 col-sm-6 col-12"  >
+                        <div class="dashboard-summery-one mg-b-20" style=" color:black;" id="Shadow">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <div class="item-icon bg-light-green ">
+                                        <i class="flaticon-classmates text-green"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="item-content">
+                                        <div class="item-title"  style="color:black;">Students</div>
+                                        <?php
+                                            include('php/dbconfig.php');
+
+                                            $get_q = "SELECT * FROM admission";
+
+                                            $get_student = $conn->query($get_q);
+
+                                            $num = $get_student->num_rows
+
+                                        ?> 
+                                       
+                                        <div class="item-number"><span class="counter" data-num="<?php echo $num; ?>"><?php echo $num; ?></span></div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 col-12" >
+                        <div class="dashboard-summery-one mg-b-20" style=" color:black;" id="Shadow">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <div class="item-icon bg-light-blue">
+                                        <i class="flaticon-multiple-users-silhouette text-blue"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="item-content">
+                                        <div class="item-title"  style="color:black;">Teachers</div>
+                                        <?php
+                                            include('php/dbconfig.php');
+
+                                            $get_q = "SELECT * FROM add_teacher";
+
+                                            $get_student = $conn->query($get_q);
+
+                                            $num = $get_student->num_rows
+
+                                        ?> 
+                                       
+                                        <div class="item-number"><span class="counter" data-num="<?php echo $num; ?>"><?php echo $num; ?></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 col-12" >
+                        <div class="dashboard-summery-one mg-b-20" style="color:black;"  id="Shadow">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <div class="item-icon bg-light-yellow">
+                                        <i class="flaticon-couple text-orange"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="item-content">
+                                        <div class="item-title"  style="color:black;">Parents</div>
+                                        <?php
+                                            include('php/dbconfig.php');
+
+                                            $get_q = "SELECT * FROM parents";
+
+                                            $get_student = $conn->query($get_q);
+
+                                            $num = $get_student->num_rows
+
+                                        ?> 
+                                       
+                                        <div class="item-number"><span class="counter" data-num="<?php echo $num; ?>"><?php echo $num; ?></span></div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- Dashboard summery End Here -->
+                <!-- Dashboard Content Start Here -->
+                <div class="row gutters-20">            
+                    <div class="col-12 col-xl-6 col-6-xxxl">
+                        <div class="card dashboard-card-three pd-b-20">
+                            <div class="card-body" id="Shadow" style="color:black;" >
+                                <div class="heading-layout1">
+                                    <div class="item-title">
+                                        <h1 style="color:black;" class="text-center">Students</h1>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="student-report mt-5 p-5">
+                                    
+                                    <div class="student-count pseudo-bg-blue">
+                                        <img src="img/female.png" alt="" width="100px" height="100px">
+                                        <h4 class="item-title" style="color:black;">Female Students</h4>
+                                        <div class="item-number" style="color:black;"><?php
+                                        require_once('php/dbconfig.php');
+
+                                        $sql = "SELECT * FROM admission WHERE Gender='female' ";
+                                        $run = $conn->query($sql);
+
+                                        if($num = $run->num_rows > 0)
+                                        {?>
+                                            <h1><?php echo $num; ?></h1>
+                                        <?php
+                                        }
+                                        else
+                                        {?>
+                                            <h1>0</h1>
+                                        <?php
+                                        }
+
+                                        ?></div>
+                                    </div>
+                                    <div class="student-count pseudo-bg-yellow">
+                                        <img src="img/male.png" alt="" width="100px" height="100px">
+                                        <h4 class="item-title" style="color:black;">Male Students</h4>
+                                        <div class="item-number" style="color:black;">
+                                        <?php
+                                        require_once('php/dbconfig.php');
+
+                                        $sql = "SELECT * FROM admission WHERE Gender='male' ";
+                                        $run = $conn->query($sql);
+
+                                        if($num = $run->num_rows > 0)
+                                        {?>
+                                            <h1><?php echo $num; ?></h1>
+                                        <?php
+                                        }
+                                        else
+                                        {?>
+                                            <h1>0</h1>
+                                        <?php
+                                        }
+
+                                        ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <!-- Dashboard Content End Here -->
+            
+            </div>
+        </div>
+        <!-- Page Area End Here -->
+    </div>
+    <!-- jquery-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Counterup Js -->
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Moment Js -->
+    <script src="js/moment.min.js"></script>
+    <!-- Waypoints Js -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Scroll Up Js -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- Full Calender Js -->
+    <script src="js/fullcalendar.min.js"></script>
+    <!-- Chart Js -->
+    <script src="js/Chart.min.js"></script>
+    <!-- Custom Js -->
+    <script src="js/main.js"></script>
+
+    
+
+</body>
+
+</html>
